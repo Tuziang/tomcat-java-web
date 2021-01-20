@@ -1,0 +1,60 @@
+<project name="helloapp" default="compile" basedir=".">
+
+<!-- ===================== Property Definitions =========================== -->
+  <property name="tomcat.home" value="C:/tomcat" />
+  <property name="app.home"          value="." />
+ 
+  <property name="src.home"          value="${app.home}/src"/>
+  <property name="classes.home"       value="${app.home}/classes"/>
+ 
+ 
+<!-- ==================== Compilation Classpath =========================== -->
+
+    <!--
+         This section creates the classpath for compilation.
+    -->
+
+  <path id="compile.classpath">
+
+    <!-- The object files for this application -->
+    <pathelement location="${classes.home}"/>
+
+    <!-- All files/jars that Tomcat makes available -->
+    <fileset dir="${tomcat.home}/lib">
+      <include name="*.jar"/>
+    </fileset>
+
+    <!-- All files/jars that AXIS makes available -->
+    <fileset dir="${app.home}/lib">
+      <include name="*.jar"/>
+    </fileset>
+
+  </path>
+
+<!-- ==================== "compile" Target ================================ -->
+
+    <!--
+          This only compiles java files that are newer
+          than their corresponding .class files.
+     -->
+
+  <target name="compile"  >
+    <javac srcdir="${src.home}" destdir="${classes.home}" debug="yes"  source="8"  target="8"         includeantruntime="false" deprecation="true">
+        <classpath refid="compile.classpath"/>
+        <compilerarg value="-Xlint:-options"/> 
+    </javac>
+  </target>
+
+
+  <target name="build"  >
+    <jar destfile="${app.home}/build/helloservice.aar" basedir="${app.home}/classes"/>
+  </target>
+
+  <target name="runClient"  >
+    <java classname="mypack.HelloClient">
+      <classpath refid="compile.classpath"/>
+    </java>  
+  </target>
+
+
+</project>

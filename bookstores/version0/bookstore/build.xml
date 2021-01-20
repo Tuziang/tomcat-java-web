@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<project name="bookstore" default="about" basedir=".">
+  
+  <!-- 初始化Target -->
+  <target name="init">
+    <property name="build" value="build" />
+    <property environment="myenv" /> 
+    <property name="tomcat.home" value="${myenv.CATALINA_HOME}" />
+    <property name="app.home"          value="." />
+    <property name="src.home"          value="${app.home}/src"/>
+    <property name="classes.home"       value="${app.home}/WEB-INF/classes"/>
+ 
+    <!-- 定义classpath -->
+    <path id="compile.classpath">
+
+      <!-- classpath中包含了WEB-INF/classes目录下的类文件 -->
+      <pathelement location="${classes.home}"/>
+
+      <!-- classpath中包含了Tomcat的lib目录下的JAR文件 -->
+      <fileset dir="${tomcat.home}/lib">
+        <include name="*.jar"/>
+      </fileset>
+
+      <!-- classpath中包含了WEB-INF的lib目录下的mysqldriver.jar文件 -->
+      <fileset dir="${app.home}/WEB-INF/lib">
+        <include name="mysqldriver.jar"/>
+      </fileset>
+    </path>
+  </target>
+
+  <!-- 编译Target,依赖于init Target -->
+  <target name="compile"  depends="init" >
+    <javac srcdir="${src.home}" destdir="${classes.home}" debug="yes"
+        includeAntRuntime="false" deprecation="true"> 
+
+      <classpath refid="compile.classpath"/>
+      <compilerarg value="-Xlint:unchecked" />
+    </javac>
+  </target>
+
+
+  <!-- 打包Target,依赖于编译Target -->
+  <target name="bookstorewar" depends="compile"> 
+    <delete dir="${build}" /> 
+    <mkdir dir="${build}" />
+
+    <copy todir="${build}" >
+      <fileset dir="${basedir}"  >
+        <include name="*.jsp" />
+        <include name="*.bmp" />
+        <include name="WEB-INF/**" />
+        <exclude name="build.xml" />
+      </fileset>
+    </copy>
+       
+    <war warfile="${build}/bookstore.war" webxml="${build}/WEB-INF/web.xml">
+	<lib dir="${build}/WEB-INF/lib"/>
+	<classes dir="${build}/WEB-INF/classes"/>
+	<fileset dir="${build}"/>
+    </war> 
+  </target>
+
+  <!-- 工程说明Target -->
+  <target name="about" >
+    <echo> 
+	This build.xml file contains targets 
+        for building bookstore web application
+    </echo>
+  </target>
+
+</project>

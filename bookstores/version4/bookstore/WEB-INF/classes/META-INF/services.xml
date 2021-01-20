@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<service name="BookDBService">  
+  <description> Web Service BookDB  </description>  
+  <parameter name="ServiceClass">  
+    mypack.BookDB  
+  </parameter>  
+  <operation name="getBooks">
+    
+    <messageReceiver  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+  
+  </operation>
+  <operation name="getNumberOfBooks">
+    
+    <messageReceiver  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+  
+  </operation>
+  <operation name="getBookDetails">
+    
+    <messageReceiver  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+  
+  </operation>
+  <operation name="buyBooks">
+    
+    <messageReceiver  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+  
+  </operation>
+
+</service> 
+

@@ -1,0 +1,11 @@
+<!-- configure virtual host. copy the following code into server.xml -->
+
+<Host name="www.javathinkerok.com" appBase="C:\javathinkerok" 
+unpackWARs="true" autoDeploy="true">
+
+  <Alias>javathinkerok.com</Alias>
+  <Alias>javathinkerok</Alias>
+
+</Host>
+
+

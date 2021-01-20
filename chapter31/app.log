@@ -1,0 +1,4 @@
+12:31:57.357 [main] WARN  helloappLogger - This is a log message from the helloappLogger
+12:31:57.362 [main] ERROR helloappLogger - This is a log message from the helloappLogger
+12:31:57.363 [main] FATAL helloappLogger - This is a log message from the helloappLogger
+12:31:57.363 [main] ERROR helloappLogger - This is an error message

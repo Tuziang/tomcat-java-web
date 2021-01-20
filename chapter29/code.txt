@@ -1,0 +1,12 @@
+1.生成安全证书的命令
+
+keytool -genkey -alias tomcat -keyalg RSA  -keystore C:\tomcat\conf\test.keystore
+
+2.在<CATALINA_HOME>\conf\server.xml文件中配置SSL连接器的代码
+
+<Connector
+   protocol="org.apache.coyote.http11.Http11NioProtocol"
+   port="8443" maxThreads="200"
+   scheme="https" secure="true" SSLEnabled="true"
+   keystoreFile="conf/test.keystore" keystorePass="123456"
+   clientAuth="false" sslProtocol="TLS"/>

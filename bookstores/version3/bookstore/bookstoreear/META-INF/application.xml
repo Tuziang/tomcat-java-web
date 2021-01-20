@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application>
+    <display-name>Bookstore JavaEE Application</display-name>
+
+    <module>
+    <web>
+        <web-uri>bookstore.war</web-uri>
+        <context-root>/bookstore</context-root>
+    </web>
+    </module>
+
+    <module>
+        <ejb>bookdbejb.jar</ejb>
+    </module>
+
+    <library-directory>lib</library-directory>
+
+</application>

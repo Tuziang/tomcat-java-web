@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <img id="myImage" onclick="changeImage()" src="cat.png" >
+    <p>按下鼠标，切换图片</p>
+
+    <script>
+      function changeImage(){
+        //定义一个image变量来引用id为“myImage”的元素
+        var image = document.getElementById('myImage');
+
+        //切换待显示的图片文件
+        if(image.src.match("mouse.png")) {
+          image.src = "cat.png";
+        }else {
+          image.src = "mouse.png";
+        }
+      }
+    </script>
+</body>
+</html>

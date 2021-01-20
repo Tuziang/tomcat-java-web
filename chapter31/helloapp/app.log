@@ -1,0 +1,6 @@
+13:49:24.885 [http-nio-8080-exec-44] WARN  helloappLogger - This is a log message from the helloappLogger
+13:49:24.916 [http-nio-8080-exec-44] ERROR helloappLogger - This is a log message from the helloappLogger
+13:49:24.917 [http-nio-8080-exec-44] FATAL helloappLogger - This is a log message from the helloappLogger
+12:32:32.545 [http-nio-8080-exec-1] WARN  helloappLogger - This is a log message from the helloappLogger
+12:32:32.609 [http-nio-8080-exec-1] ERROR helloappLogger - This is a log message from the helloappLogger
+12:32:32.627 [http-nio-8080-exec-1] FATAL helloappLogger - This is a log message from the helloappLogger

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0" >
+
+   <context-param>
+     <param-name>emailOfwebmaster</param-name>
+     <param-value>webmaster@hotmail.com</param-value>
+   </context-param> 
+<!--
+   <listener>
+     <listener-class>mypack.MyServletContextListener</listener-class>
+   </listener>
+-->
+  <servlet>
+    <servlet-name>info</servlet-name>
+    <servlet-class>mypack.RequestInfoServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>info</servlet-name>
+    <url-pattern>/info</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>mypack.HelloServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+<!--
+  <servlet>
+    <servlet-name>query</servlet-name>
+    <servlet-class>async.AsyncServlet</servlet-class>
+    <async-supported>true</async-supported>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>query</servlet-name>
+    <url-pattern>/query</url-pattern>
+  </servlet-mapping>
+-->
+  <servlet>
+    <servlet-name>Font</servlet-name>
+    <servlet-class>mypack.FontServlet</servlet-class>
+    <init-param>
+      <param-name>color</param-name>
+      <param-value>blue</param-value>
+    </init-param>
+    <init-param>
+      <param-name>size</param-name>
+      <param-value>15</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Font</servlet-name>
+    <url-pattern>/font</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>contextTest</servlet-name>
+    <servlet-class>mypack.ContextTesterServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>contextTest</servlet-name>
+    <url-pattern>/contextTest</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>lifeInit</servlet-name>
+    <servlet-class>mypack.LifeServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>lifeInit</servlet-name>
+    <url-pattern>/lifeInit</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>life</servlet-name>
+    <servlet-class>mypack.LifeServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>life</servlet-name>
+    <url-pattern>/life</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>counter</servlet-name>
+    <servlet-class>mypack.CounterServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>counter</servlet-name>
+    <url-pattern>/counter</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>clear</servlet-name>
+    <servlet-class>mypack.CounterClearServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>clear</servlet-name>
+    <url-pattern>/clear</url-pattern>
+  </servlet-mapping>
+
+
+ <servlet>
+    <servlet-name>excep</servlet-name>
+    <servlet-class>mypack.ExceptionTesterServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>excep</servlet-name>
+    <url-pattern>/excep</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>test</servlet-name>
+    <servlet-class>mypack.QuestionServlet</servlet-class>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>counter1</servlet-name>
+    <servlet-class>mypack.CounterServlet1</servlet-class>
+    <load-on-startup>2</load-on-startup>
+   </servlet>
+
+  <servlet-mapping>
+    <servlet-name>counter1</servlet-name>
+    <url-pattern>/counter1</url-pattern>
+  </servlet-mapping>
+
+</web-app>
